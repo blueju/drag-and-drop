@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5拖放</title>
+  <style>
+    #draggedElement {
+      width: 200px;
+    }
+
+    .container {
+      width: 200px;
+      height: 283px;
+      border: 1px solid #eee;
+      float: left;
+      margin-right: 20px;
+      position: relative;
+    }
+
+    .placeholder {
+      color: #666;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img id='draggedElement' draggable="true" ondragstart="dragstart(event)" src="img.jpg">
+  </div>
+  <div class="container" ondragover="dragover(event)" ondrop="drop(event)">
+    <span class="placeholder">将图片拖拽到这里来</span>
+  </div>
+</body>
+
+<script>
+  function dragstart(e) {
+    console.log(e.dataTransfer);
+    e.dataTransfer.setData('draggedElementId', e.target.id)
+  }
+
+  function dragover(e) {
+    e.preventDefault()
+  }
+
+  function drop(e) {
+    e.preventDefault()
+    let draggedElementId = e.dataTransfer.getData('draggedElementId')
+    e.target.appendChild(document.getElementById(draggedElementId))
+  }
+</script>
+
+</html>
