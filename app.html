@@ -22,37 +22,19 @@
 
   <script>
     function showDialog(dialogId, maskLayerId) {
-      showMaskLayer(maskLayerId)
-      autoCenter(dialogId)
-      document.getElementById(dialogId).style.display = 'block'
-    }
-
-    function showMaskLayer(maskLayerId) {
+      // 显示遮罩层
       let maskLayer = document.getElementById(maskLayerId)
-
       maskLayer.style.width = document.documentElement.clientWidth + 'px'
       maskLayer.style.height = document.documentElement.clientHeight + 'px'
-
       maskLayer.style.display = 'block'
-    }
-
-    function autoCenter(dialogId) {
 
       // 显示弹窗
-      document.getElementById('dialog').style.display = 'block'
-      // 显示遮罩层
-      document.getElementById('mask-layer').style.display = 'block'
-
-      let dialogWidth = document.getElementById(dialogId).clientWidth
-      let dialogHeight = document.getElementById(dialogId).clientHeight
-
-      let pageWidth = document.documentElement.clientWidth
-      let pageHeight = document.documentElement.clientHeight
-
-      document.getElementById(dialogId).style.left =
-        (pageWidth - dialogWidth) / 2 + 'px'
-      document.getElementById(dialogId).style.top =
-        (pageHeight - dialogHeight) / 2 + 'px'
+      let dialogElement = document.getElementById('dialog')
+      dialogElement.style.display = 'block';
+      dialogElement.style.left =
+        (document.documentElement.clientWidth - dialogElement.clientWidth) / 2 + 'px';
+      dialogElement.style.top =
+        (document.documentElement.clientHeight - dialogElement.clientHeight) / 2 + 'px'
     }
   </script>
 </body>
