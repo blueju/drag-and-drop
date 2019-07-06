@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>拖拽</title>
+      <link rel="stylesheet" type="text/css" href="index.css" />
+   </head>
+   <body>
+
+      <!-- 显示隐藏按钮 -->
+      <button type="button" class="btn" onclick="showDialog()">
+         点击显示可拖拽式弹窗
+      </button>
+
+      <!-- 遮罩层 -->
+      <div class="ui-mask" id="mask" onselectstart="return false"></div>
+
+      <div class="ui-dialog" id="dialogMove" onselectstart='return false;'>
+         <div class="ui-dialog-title" id="dialogDrag" onselectstart="return false;">
+            登录通行证
+            <a class="ui-dialog-closebutton" href="javascript:hideDialog();"></a>
+         </div>
+         <div class="dialog-content">
+            
+         </div>
+      </div>
+
+      <script src="index.js" type="text/javascript" charset="utf-8"></script>
+   </body>
+</html>
