@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>拖拽</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+  <button onclick="showDialog('dialog','mask-layer')" class="btn">
+    点击 显示/隐藏 可拖拽弹窗
+  </button>
+
+  <!-- 遮罩层 -->
+  <div id="mask-layer" class="mask-layer"></div>
+
+  <!-- 弹窗 -->
+  <div id="dialog"></div>
+
+  <script src="app.js"></script>
+
+  <script>
+    function showDialog(dialogId, maskLayerId) {
+      showMaskLayer(maskLayerId)
+      autoCenter(dialogId)
+      document.getElementById(dialogId).style.display = 'block'
+    }
+
+    function showMaskLayer(maskLayerId) {
+      let maskLayer = document.getElementById(maskLayerId)
+
+      maskLayer.style.width = document.documentElement.clientWidth + 'px'
+      maskLayer.style.height = document.documentElement.clientHeight + 'px'
+
+      maskLayer.style.display = 'block'
+    }
+
+    function autoCenter(dialogId) {
+
+      // 显示弹窗
+      document.getElementById('dialog').style.display = 'block'
+      // 显示遮罩层
+      document.getElementById('mask-layer').style.display = 'block'
+
+      let dialogWidth = document.getElementById(dialogId).clientWidth
+      let dialogHeight = document.getElementById(dialogId).clientHeight
+
+      let pageWidth = document.documentElement.clientWidth
+      let pageHeight = document.documentElement.clientHeight
+
+      document.getElementById(dialogId).style.left =
+        (pageWidth - dialogWidth) / 2 + 'px'
+      document.getElementById(dialogId).style.top =
+        (pageHeight - dialogHeight) / 2 + 'px'
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+}
+
+#mask-layer {
+  background-color: black;
+  opacity: 0.3;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#dialog {
+  width: 356px;
+  height: 429px;
+
+  position: absolute;
+
+  background-color: white;
+
+  display: none;
+
+  cursor: move;
+}
