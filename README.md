@@ -7,3 +7,4 @@
 - vue（使用Vue实现）
 - react（使用React实现）
 - reference（参考）
+- HTML5 拖放
